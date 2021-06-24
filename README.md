@@ -1,10 +1,10 @@
 ## Consul-Terraform-Sync Test Module - Hello
 
-This Terraform module creates two text files, a static file and a file that has a greeting for each Consul service. This is used to test [Consul Terraform Sync](https://www.consul.io/docs/nia). It is especially useful for test cases where a task is applied but the services variable is not initiated.
+This Terraform module creates multiple text files, a static file and a file for each Consul service. This is used to test [Consul Terraform Sync](https://www.consul.io/docs/nia). It is especially useful for test cases where a task is applied but the services variable is not initiated.
 
 ## Feature
 
-This module uses the `local` Terraform provider to create one file with `Hello!` as the content and one with `Hello, <Consul service name>!` for each Consul service.
+This module uses the `local` Terraform provider to create one file `greetings.txt` with `Hello!` as the content and a file for each Consul service `greetings_<Consul service name>.txt` with `Hello, <Consul service name>!` as the content.
 
 ## Requirements
 

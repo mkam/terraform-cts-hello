@@ -15,8 +15,7 @@ resource "local_file" "greeting" {
 }
 
 resource "local_file" "greeting_services" {
-  content = "${join("\n", [
-    for _, service in var.services : "Hello, ${service.name}!"
-  ])}\n"
-  filename = "services_greetings.txt"
+  for_each = var.services
+  content = "Hello, ${each.value.name}!"
+  filename = "greetings_${each.value.name}.txt"
 }
