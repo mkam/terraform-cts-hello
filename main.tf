@@ -14,9 +14,9 @@ resource "local_file" "greeting" {
   filename = "greetings.txt"
 }
 
-resource "local_file" "greeting_services" {
+resource "local_file" "greeting_kv" {
   content = "${join("\n", [
-    for _, service in var.services : "Hello, ${service.name}!"
+    for key, value in var.consul_kv : "Hello, ${key} ${value}!"
   ])}\n"
   filename = "services_greetings.txt"
 }
